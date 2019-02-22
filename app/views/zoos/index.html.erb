@@ -1,0 +1,9 @@
+<h1 class="ui header">All Zoos</h1>
+<% @zoos.each do |zoo| %>
+  <h1><%= zoo.name %></h1>
+  <%= link_to "Show", zoo_path(zoo) %>
+  <%= link_to "Edit", edit_zoo_path(zoo) %>
+  <%= link_to "Destroy", zoo_path(zoo), method: :delete %>
+<% end %>
+<br />
+<%= link_to "New Zoo", new_zoo_path %>

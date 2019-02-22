@@ -1,0 +1,14 @@
+<h1><%= @zoo.name %></h1>
+<h4>Name: <%= @animal.name %></h4>
+<h4>Species: <%= @animal.species %></h4>
+<h4>Age: <%= @animal.age %></h4>
+<br />
+<%= link_to 'Add Comment', new_animal_comment_path(@animal), class: 'ui button blue'%>
+<br />
+<% @animal.comments.each do |comment|%>
+    <%= render 'comments/comment', {comment: comment} %>
+    <% end %>
+<br />
+<%= link_to 'Edit Animal', edit_zoo_animal_path([@zoo, @animal]) %> |
+<%= link_to 'Delete Animal', [@zoo, @animal], method: :delete %> |
+<%= link_to 'Back To Animals', zoo_animals_path(@zoo) %>
